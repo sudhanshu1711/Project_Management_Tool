@@ -1,8 +1,18 @@
+import { SignedOut, SignInButton, UserButton, SignedIn} from '@clerk/nextjs'
+import { User } from 'lucide-react'
 import React from 'react'
 
 const Header = () => {
   return (
-    <div>Header</div>
+    <div>
+     <SignedOut>
+        <SignInButton />
+     </SignedOut>
+
+     <SignedIn>
+        <UserButton />
+     </SignedIn>
+    </div>
   )
 }
 

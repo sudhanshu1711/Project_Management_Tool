@@ -2,12 +2,19 @@ import { ThemeProvider } from "@/components/theme-provider"
 import {Inter} from "next/font/google"
 import "./globals.css";
 import Header from "@/components/Header";
+import { ClerkProvider } from "@clerk/nextjs";
+import { shadesOfPurple } from "@clerk/themes";
 
 const inter = Inter({ subsets: ["latin"] })
 
 export default function RootLayout({ children }) {
   return (
     <>
+     <ClerkProvider 
+      appearance={{
+        baseTheme:shadesOfPurple
+      }}
+     >
       <html lang="en" suppressHydrationWarning>
         <head />
         <body className={`${inter.className}`}>
@@ -27,6 +34,7 @@ export default function RootLayout({ children }) {
           </ThemeProvider>
         </body>
       </html>
+      </ClerkProvider>
     </>
   )
 }
